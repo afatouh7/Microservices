@@ -22,7 +22,7 @@ namespace Basket.Api.Entities
                 decimal totalprice = 0;
                 foreach (var item in Items)
                 {
-                    totalprice += item.Price + item.Quantity;
+                    totalprice += item.Price * item.Quantity;
                 }
                 return totalprice;
             }
