@@ -1,12 +1,12 @@
 ﻿using Dapper;
-using Discount.Api.Entities;
+using Discount.Grpc.Repositories;
+using Discount.Grpc.Entities;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Discount.Api.Repositories
+namespace Discount.Grpc.Repositories
 {
     public class DiscountRepository : IDiscountRepository
     {
@@ -19,7 +19,6 @@ namespace Discount.Api.Repositories
 
         public async Task<Coupon> GetDiscount(string productName)
         {
-            var x = new List<Coupon>();
             using var connection = new NpgsqlConnection
                 (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
